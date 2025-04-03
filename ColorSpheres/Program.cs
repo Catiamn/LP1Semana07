@@ -4,51 +4,46 @@ namespace ColorSpheres
 {
     public class Program
     {
-        private static void Main(string[] args)
-        {
+
             public class Color
             {
                 private byte red
                 {
                     get
                     {
-                        return red
+                        return red;
                     }
                     set 
                     {
-                        byte red = true
+                        byte red = true;
                     }
                 }
                 private byte green
                 {
                     get
                     {
-                        return green
+                        return green;
                     }
                     set 
                     {
-                        byte green = true
+                        byte green = true;
                     }
                 }
                 private byte blue
                 {
                     get
                     {
-                        return blue
+                        return blue;
                     }
                     set 
                     {
-                        byte blue = true
+                        byte blue = true;
                     }
                 }
             }
 
-            private class Sphere(Color, raio, ThrowTimes)
-            {
-                int raio = 0
-            }
+            
 
             
-        }
     }
 }

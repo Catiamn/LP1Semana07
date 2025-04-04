@@ -26,18 +26,13 @@ namespace MyRPG
         
         public float Health
         {
+            get => health;
             set
             {
-               if (health > MaxHealth)
-               { 
-                health= MaxHealth;
-               }
+                health = value;
+                if (health > MaxHealth) health = MaxHealth;
+                if (health < 0) health = 0;
             }
-            get
-            {
-                return health;
-            }
-            
         }
 
         public float MaxHealth

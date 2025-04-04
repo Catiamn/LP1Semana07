@@ -51,7 +51,9 @@ namespace MyRPG
             XP += (int)damage / 20;
         }
 
-        public int Level = 1 + XP / 1000;
-        
+        public int Level 
+        {
+        get => 1 + XP / 1000;
+        }
     }
 }

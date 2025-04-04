@@ -5,32 +5,53 @@ namespace MyRPG
     public class Player
     {
         private int xp;
-        private float float;
-        public string Name
+        private float health;
+        public string Name { get; }
+        
+        public Player(string name)
+        {
+            this.Name = name;
+            xp = 0;
+            Health = MaxHealth;
+        }
+
         public int XP
         {
             get => xp;
-            int xp = 0;
-            int xp += value
-            if (value < = 0)
+            set
             {
-                xp = 0;
+                if (value > xp) xp = value;
             }
         }
-        public int Level
+        
+        public float Health
         {
-            int Level = 1 + XP / 1000;
+            set
+            {
+               if (health > MaxHealth)
+               { 
+                health= MaxHealth;
+               }
+            }
+            get
+            {
+                return health;
+            }
+            
         }
+
         public float MaxHealth
         {
-            float readonly MaxHealth = 100 + (Level - 1) * 20;
+            get => 100f + (Level - 1) * 20f;
         }
         
         public void TakeDamage(float damage)
         {
-            float damage = value;
-            int health -= damage;
-            int xp += (int)damage/20
+            Health -= damage;
+            XP += (int)damage / 20;
         }
+
+        public int Level = 1 + XP / 1000;
+        
     }
 }

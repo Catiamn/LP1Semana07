@@ -2,65 +2,55 @@
 
 namespace PlayerStats
 {
-    public class Player
+    public class Program
     {
-        private int matches;
-        private int wins;
-        private float highScore;
-        public float HighScore
+        private static void Main()
         {
-            get => highScore;
-            set
+            Player[] players = {
+                new Player("Ana"),
+                new Player("Zé"),
+                new Player("Doesn't play")
+            };
+
+            players[0].PlayGame(false);
+            players[0].PlayGame(true);
+            players[0].PlayGame(true);
+            players[0].PlayGame(false);
+            players[0].PlayGame(false);
+            players[0].PlayGame(true);
+            players[0].HighScore = 123;
+            players[0].HighScore = 40;
+
+            players[1].PlayGame(true);
+            players[1].PlayGame(true);
+            players[1].HighScore = 12;
+            players[1].HighScore = 67;
+            players[1].HighScore = 91;
+            players[1].HighScore = 32;
+
+            foreach (Player player in players)
             {
-               //Se o "input" for maior que o HighScore, substitui o highscore atual pelo novo valor mais alto (o input)
-                if (value > highScore)
-                {
-                    highScore = value;
-                }
+                Console.WriteLine($" Player name : {player.Name}");
+                Console.WriteLine($"    Win rate : {player.WinRate}");
+                Console.WriteLine($"  High score : {player.HighScore}");
+                Console.WriteLine("--------------------------------");
             }
+
+            // Output deve ser:
+            //
+            //  Player name : Ana
+            //     Win rate : 0.5
+            //   High score : 123
+            // --------------------------------
+            //  Player name : Zé
+            //     Win rate : 1
+            //   High score : 91
+            // --------------------------------
+            //  Player name : Doesn't play
+            //     Win rate : 0
+            //   High score : 0
+            // --------------------------------
+
         }
-            public string Name { get; }
-
-        /// <summary>
-        /// WinRate divide as wines pelos matches, dando depois uma percetangem equivalente a winrate do jogador
-        /// </summary>
-        public float WinRate
-        {
-            get
-            {
-                if (matches == 0)
-                {
-                    return 0;
-                }
- 
-                return (float) wins / matches;
-             }
-        }
-        //Mete todos os parametros a 0 para depois ir adicionando nos outros parametros 
-        public Player(string name)
-         {
-             Name = name;
-             highScore = 0;
-             matches = 0;
-             wins = 0;
-         }
-
-
-        /// <summary>
-        /// Adiciona o match ao total de "matches" e caso win (= true) adiciona ao total de "wins"
-        /// </summary>
-        /// <param name="win">Win como parametro que depois define o WinRate do jogador</param>
-         public void PlayGame(bool win)
-         {
-             matches++;
-             if (win)
-             {
-                 wins++;
-             }
-         }
-
-
-
-
     }
 }
